@@ -1,10 +1,16 @@
 version: "3.9"
 services:
   postgres:
-    image: postgres:13.3
+    image: postgres:14.8-alpine3.18
     environment:
-      POSTGRES_DB: "users"
+      POSTGRES_DB: "userdb"
       POSTGRES_USER: "server"
       POSTGRES_PASSWORD: "server"
+      PGDATA: "/Users/heartsfi/Pet_Rest/sql"
+    volumes:
+      - user-data:/User/heartsfi/Pet_Rest/data
     ports:
       - "5432:5432"
+
+volumes:
+  user-data:
